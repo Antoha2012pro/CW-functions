@@ -164,18 +164,104 @@
 
 
 // Напиши скрипт підрахунку вартості гравіювання прикрас. Для цього створи функцію calculateEngravingPrice(message, pricePerWord) приймаючу рядок (в рядку будуть тільки слова і прогалини) і ціну гравіювання одного слова, і повертає ціну гравіювання всіх слів в рядку.
-const calculateEngravingPrice = function(message, pricePerWord) {
-    const result = message.split(" ");
-    const totalPrice = result.length * pricePerWord;
-    return totalPrice;
+// const calculateEngravingPrice = function(message, pricePerWord) {
+//     const result = message.split(" ");
+//     const totalPrice = result.length * pricePerWord;
+//     return totalPrice;
+// }
+
+// const stringMessage = "Напиши скрипт підрахунку вартості гравіювання прикрас";
+// const price = 5000;
+
+// const newMessage = "Lorem ipsum dolor sit amet consectetur adipisicing elit Dolore tempore facilis minus cumque asperiores corporis reprehenderit exercitationem debitis Numquam iusto blanditiis fuga adipisci voluptatibus assumenda modi harum mollitia velit animi sadam?";
+// const newPrice = 1000;
+
+// console.log(calculateEngravingPrice(stringMessage, price));
+// console.log(calculateEngravingPrice(newMessage, newPrice));
+
+
+
+// Урок 3
+
+// Детальний опис "Стрілкова функція/function expretion":
+
+// const sum = (b, c) => { // Якщо потрібно лише два налаштування
+//     const res = a + b;
+//     return res; // Фігурні дужки та return це явне повернення
+// }
+
+// const sumTwo = (a, b) => a + b; // Якщо нема фігурний дужок та return то це не явне повернення
+
+//               (а)  знизу нема дужок
+// const sumThree = a => { // Якщо потрібно лише одне налаштування
+// }
+
+// const mesLower = mes => {
+//     const res = mes.toLowerCase();
+//     return res;
+// }
+// console.log(mesLower("ASDASDSAD"));
+
+// const show = (...args) => { // Якщо нема налаштування то такий синтаксис
+//     console.log(args); // Псевдомасив у стрілкових функцій не працює
+// }
+// console.log(show(1, 2, 3, 4, 5, 6));
+
+
+// Напишіть функцію, яка приймає на вхід масив чисел і повертає новий масив, в якому кожний елемент є квадратом відповідного елементу вхідного масиву.
+
+// const arrayQuadrat = (number) => {
+//     const newArray = [];
+//     for (let index = 0; index < number.length; index++) {
+//         const element = number[index] * number[index];
+//         console.log(element);
+//         newArray.unshift(element); // unshift додає у зворотньому та push у обичному напрямку
+//     }
+//     return newArray; // У такому випадку return обов'язковий
+// }
+// console.log(arrayQuadrat([1, 2, 3, 4, 5]));
+
+
+// Напишіть функцію, яка повертає новий масив, в якому всі елементи масиву помножені на задане число
+
+// const newArray = (array, number) => {
+//     const newNumber = [];
+//     for (const i of array) {
+//         newNumber.push(i * number)
+//     }
+//     return newNumber
+// }
+// const arrayNumbers = [2, 4, 6, 8, 10];
+// const value = 10;
+// console.log(newArray(arrayNumbers, value));
+
+
+// Напиши стрілкову функцію myAverageScore , яка у якості аргументу отримує масив з оцінками, і виводить користувачу його середній результат у наступному форматі:
+// Myaveragescore: A (якщо середня оцінка від 91 до 100)
+// My average score: B (якщо середня оцінка від 81 до 90)
+// My average score: C (якщо середня оцінка від 71 до 80)
+// My average score: D (якщо середня оцінка від 70 і менше)
+
+const myAverageScore = (arrayOfNumbers) => {
+    let sum = 0;
+    let message = "";
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+        sum += arrayOfNumbers[i]
+    }
+    const mark = sum / arrayOfNumbers.length; // arrayOfNumbers.length це кількість елементів у масиві. НЕ ІНДЕКС!!!
+    if (mark >= 91 && mark <= 100) {
+        message = `Ви в групі A, ваш середній бал ${mark}`;
+    } else if (mark >= 81 && mark <= 90) {
+        message = `Ви в групі B, ваш середній бал ${mark}`;
+    } else if (mark >= 71 && mark <= 80) {
+        message = `Ви в групі C, ваш середній бал ${mark}`;
+    } else {
+        message = `Ви в групі D, ваш середній бал ${mark}`;
+    }
+    return message;
 }
-
-const stringMessage = "Напиши скрипт підрахунку вартості гравіювання прикрас";
-const price = 5000;
-
-const newMessage = "Lorem ipsum dolor sit amet consectetur adipisicing elit Dolore tempore facilis minus cumque asperiores corporis reprehenderit exercitationem debitis Numquam iusto blanditiis fuga adipisci voluptatibus assumenda modi harum mollitia velit animi sadam?";
-const newPrice = 1000;
-
-console.log(calculateEngravingPrice(stringMessage, price));
-console.log(calculateEngravingPrice(newMessage, newPrice));
-
+// Для перевірки:
+console.log(myAverageScore([100, 75, 81, 96]));
+console.log(myAverageScore([45, 63, 85, 70]));
+console.log(myAverageScore([77, 82, 60, 58]));
+console.log(myAverageScore([93, 99, 93, 96]));
