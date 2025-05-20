@@ -242,26 +242,122 @@
 // My average score: C (якщо середня оцінка від 71 до 80)
 // My average score: D (якщо середня оцінка від 70 і менше)
 
-const myAverageScore = (arrayOfNumbers) => {
-    let sum = 0;
-    let message = "";
-    for (let i = 0; i < arrayOfNumbers.length; i++) {
-        sum += arrayOfNumbers[i]
-    }
-    const mark = sum / arrayOfNumbers.length; // arrayOfNumbers.length це кількість елементів у масиві. НЕ ІНДЕКС!!!
-    if (mark >= 91 && mark <= 100) {
-        message = `Ви в групі A, ваш середній бал ${mark}`;
-    } else if (mark >= 81 && mark <= 90) {
-        message = `Ви в групі B, ваш середній бал ${mark}`;
-    } else if (mark >= 71 && mark <= 80) {
-        message = `Ви в групі C, ваш середній бал ${mark}`;
-    } else {
-        message = `Ви в групі D, ваш середній бал ${mark}`;
-    }
-    return message;
+// const myAverageScore = (arrayOfNumbers) => {
+//     let sum = 0;
+//     let message = "";
+//     for (let i = 0; i < arrayOfNumbers.length; i++) {
+//         sum += arrayOfNumbers[i]
+//     }
+//     const mark = sum / arrayOfNumbers.length; // arrayOfNumbers.length це кількість елементів у масиві. НЕ ІНДЕКС!!!
+//     if (mark >= 91 && mark <= 100) {
+//         message = `Ви в групі A, ваш середній бал ${mark}`;
+//     } else if (mark >= 81 && mark <= 90) {
+//         message = `Ви в групі B, ваш середній бал ${mark}`;
+//     } else if (mark >= 71 && mark <= 80) {
+//         message = `Ви в групі C, ваш середній бал ${mark}`;
+//     } else {
+//         message = `Ви в групі D, ваш середній бал ${mark}`;
+//     }
+//     return message;
+// }
+// // Для перевірки:
+// console.log(myAverageScore([100, 75, 81, 96]));
+// console.log(myAverageScore([45, 63, 85, 70]));
+// console.log(myAverageScore([77, 82, 60, 58]));
+// console.log(myAverageScore([93, 99, 93, 96]));
+
+
+
+
+
+
+
+
+// Урок 4
+
+// const calculator = (one, two, callback) => { // callback це змінна з якої треба брати функції. Функція зворотнього виклику. Повертає у функцію функцію
+//     // console.log(callback);
+//     return callback(one, two);
+// }
+// const plusNum = (a, b) => {
+//     return `Сума чисел ${a} + ${b} = ${a + b}`;
+// }
+// const minusNum = (a, b) => {
+//     return `Сума чисел ${a} - ${b} = ${a - b}`;
+// }
+// const multiPlyNum = (a, b) => {
+//     return `Сума чисел ${a} * ${b} = ${a * b}`;
+// }
+// const devideNum = (a, b) => {
+//     return `Сума чисел ${a} / ${b} = ${a / b}`;
+// }
+// console.log(calculator(10, 5, plusNum));
+// console.log(calculator(5, 1, minusNum));
+// console.log(calculator(6, 2, multiPlyNum));
+// console.log(calculator(60, 3, devideNum));
+
+
+// Знайдіть суму елементів масиву з використанням колбек-функції
+// const arr = [1, 2, 3, 4, 5];
+
+// const sumArray = (array, callback) => {
+//     let res = 0;
+//     for (const num of array) {
+//         res = callback(res, num)
+//     }
+//     return res;
+// }
+// const sum = (a, b) => a + b; // calback 
+// console.log(sumArray(arr, sum));
+
+
+// Напишіть функцію, яка повертає новий масив, в якому всі елементи масиву помножені на задане число, з використанням колбек-функції
+
+// const multiPlyArray = (array, number, callback) => {
+//     console.log(array);
+//     console.log(number);
+//     console.log(callback);
+//     const result = [];
+//     // for (let i = 0; i < array.length; i += 1) {
+//     //     result.push(callback(array[i], number));
+//     // }
+//     for (const elem of array) {
+//         result.push(callback(elem, number))
+//     }
+//     return result;
+// }
+// const multiPly = (a, b) => a * b;
+// const arr = [1, 4, 6, 10, 5];
+// const num = 3;
+// console.log(multiPlyArray(arr, num, multiPly));
+// //                       array,    назва змінної з якої брати функцію
+// //                            number
+
+
+// Створіть функцію processArray(array, callback), яка приймає масив та функцію-колбек. Викличте processArray з різними масивами та функціями-колбеками, щоб виконати наступні операції:
+// Порахувати суму всіх елементів масиву.
+// Знайти мінімальний елемент масиву.
+// Знайти максимальний елемент масиву.
+// Перепишіть колбек-функції на стрілки
+
+const arr = [1, 2, 3, 4, 5];
+
+const processArray = (array, callback) => {
+    return callback(array);
 }
-// Для перевірки:
-console.log(myAverageScore([100, 75, 81, 96]));
-console.log(myAverageScore([45, 63, 85, 70]));
-console.log(myAverageScore([77, 82, 60, 58]));
-console.log(myAverageScore([93, 99, 93, 96]));
+
+const plusNum = (a, b) => {
+    let res = 0;
+    for (let index = 0; index < arr.length; index++) {
+        const element = arr[index];
+        console.log(element);
+        res += element
+    }
+    return res;
+}
+
+const minNum = (arr) => {
+    let min = 0; // дописати
+}
+console.log(processArray(arr, plusNum));
+console.log(processArray(arr, minNum));
